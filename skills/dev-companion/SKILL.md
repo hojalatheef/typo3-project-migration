@@ -58,6 +58,29 @@ which ignore themselves in git), and `.typo3-dev-companion/state.json`.
 4. Show the user the `.mcp.json` diff. Then: restart Claude Code, approve
    the server, and run `/typo3-project-migration:dev-companion check`.
 
+### No usable host PHP: run it in Docker
+
+If the host has no working PHP 8.2+, run Composer and the installer in
+containers that mount both directories at their host paths. Then point the
+entry at the container:
+
+```bash
+docker run --rm -v "$home":"$home" -w "$home" composer:2 install --no-interaction
+docker run --rm -v "$home":"$home" -v "$PWD":"$PWD" -w "$PWD" php:8.3-cli \
+  php "$home/bin/typo3-dev-companion" install --agent=claude
+jq --arg h "$home" --arg p "$PWD" '.mcpServers["typo3-dev-companion"] = {type:"stdio", command:"docker",
+  args:["run","--rm","-i","-v",($h+":"+$h),"-v",($p+":"+$p),"-w",$p,"php:8.3-cli","php",($h+"/bin/typo3-dev-companion")]}' \
+  .mcp.json > .mcp.json.tmp && mv .mcp.json.tmp .mcp.json
+```
+
+What this costs: the container has neither `ddev` nor the project's
+database, so lookups that boot the installation (`typo3_configuration_lookup`,
+and others that answer from the installation) report "installation could
+not be booted". File-based and network lookups (`typo3_project_describe`,
+changelog, documentation, system extensions, TER) work. The installer's
+`update` refuses an entry it didn't write, so after an `update` the `jq`
+step runs again. Docker must be running when Claude Code starts.
+
 Don't add `typo3/dev-companion` to the project's `composer.json`. It has no
 release on Packagist yet, and its PHP 8.2 floor would fight an old
 project's constraints.
