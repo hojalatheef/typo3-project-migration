@@ -1,0 +1,28 @@
+{
+  "name": "typo3-project-migration",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude Code plugin for upgrading whole TYPO3 projects across LTS lines (v10 to v14). This package only runs the repository's checks; it is not published to npm.",
+  "homepage": "https://github.com/hojalatheef/typo3-project-migration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hojalatheef/typo3-project-migration.git"
+  },
+  "license": "MIT",
+  "author": "Hoja Mustaffa Abdul Latheef <hlatheef@jweiland.net>",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "npm run test:self && npm run lint:md",
+    "test:self": "scripts/selftest.sh",
+    "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "lint:md:fix": "markdownlint-cli2 --fix \"**/*.md\"",
+    "lint:sh": "shellcheck -S warning skills/typo3-project-migration/scripts/*.sh hooks/scripts/*.sh scripts/*.sh",
+    "validate": "claude plugin validate --strict .",
+    "release:check": "npm test && npm run validate"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.23.3"
+  }
+}

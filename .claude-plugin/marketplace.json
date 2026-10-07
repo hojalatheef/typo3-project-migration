@@ -1,0 +1,21 @@
+{
+  "name": "typo3-project-migration",
+  "owner": {
+    "name": "Hoja Mustaffa Abdul Latheef",
+    "email": "hlatheef@jweiland.net",
+    "url": "https://jweiland.net"
+  },
+  "description": "Marketplace for the TYPO3 project migration plugin (whole installations, v10 to v14).",
+  "plugins": [
+    {
+      "name": "typo3-project-migration",
+      "source": "./",
+      "description": "Upgrade whole TYPO3 projects from v10 to v14 one LTS at a time, with blocker analysis, database safety, smoke tests and optional TYPO3 Dev Companion integration.",
+      "author": {
+        "name": "Hoja Mustaffa Abdul Latheef",
+        "email": "hlatheef@jweiland.net",
+        "url": "https://jweiland.net"
+      }
+    }
+  ]
+}

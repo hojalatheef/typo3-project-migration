@@ -1,0 +1,6 @@
+.DS_Store
+.idea/
+.vscode/
+evals/results/
+.project-migration/
+node_modules/

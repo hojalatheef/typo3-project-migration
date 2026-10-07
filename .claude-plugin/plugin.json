@@ -1,0 +1,16 @@
+{
+  "name": "typo3-project-migration",
+  "displayName": "TYPO3 Project Migration",
+  "version": "0.1.0",
+  "description": "Upgrade whole TYPO3 projects (installation, sites, database, configuration, extensions) from v10 to v14, one LTS at a time: inventory, third-party blocker matrix, per-hop runbook with database safety, smoke tests against a baseline, optional TYPO3 Dev Companion integration.",
+  "author": {
+    "name": "Hoja Mustaffa Abdul Latheef",
+    "email": "hlatheef@jweiland.net",
+    "url": "https://jweiland.net"
+  },
+  "homepage": "https://github.com/hojalatheef/typo3-project-migration",
+  "repository": "https://github.com/hojalatheef/typo3-project-migration",
+  "license": "MIT",
+  "keywords": ["typo3", "migration", "upgrade", "project", "installation", "upgrade-wizards", "composer", "ddev", "dev-companion"],
+  "hooks": "./hooks/hooks.json"
+}

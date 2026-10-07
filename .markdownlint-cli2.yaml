@@ -1,0 +1,11 @@
+config:
+  default: true
+  MD013: false        # long lines are fine in reference cards
+  MD024:
+    siblings_only: true
+  MD033: false
+  MD041: false        # SKILL.md files start with frontmatter
+  MD060:
+    style: compact    # tables as "| a | b |" with "| --- | --- |" separators
+ignores:
+  - "node_modules/**"
