@@ -1,0 +1,11 @@
+config.absRefPrefix = /
+page = PAGE
+page.10 = FLUIDTEMPLATE
+page.10.file = EXT:sitepackage/Resources/Private/Templates/Page/Default.html
+page.20 = USER
+page.20.userFunc = Acme\Sitepackage\UserFunc\Copyright->render
+page.includeCSS.main = typo3conf/ext/sitepackage/Resources/Public/Css/main.css
+
+[getTSFE() && getTSFE().id == 1]
+page.bodyTagCObject.value = <body class="home">
+[END]

@@ -1,0 +1,5 @@
+imports:
+  - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Default.yaml' }
+editor:
+  config:
+    contentsCss: 'EXT:sitepackage/Resources/Public/Css/rte.css'

@@ -1,0 +1,27 @@
+{
+  "name": "acme/corporate-site",
+  "description": "Fixture: a TYPO3 v12 project for the typo3-project-migration evals",
+  "type": "project",
+  "license": "proprietary",
+  "repositories": [
+    { "type": "path", "url": "packages/*" },
+    { "type": "vcs", "url": "https://git.example.invalid/acme/legacy-slider.git" }
+  ],
+  "require": {
+    "php": "^8.1",
+    "typo3/cms-core": "^12.4",
+    "typo3/cms-backend": "^12.4",
+    "typo3/cms-frontend": "^12.4",
+    "typo3/cms-fluid-styled-content": "^12.4",
+    "typo3/cms-t3editor": "^12.4",
+    "typo3/cms-setup": "^12.4",
+    "georgringer/news": "^11.4",
+    "acme/legacy-slider": "^2.1",
+    "acme/sitepackage": "@dev"
+  },
+  "config": {
+    "platform": { "php": "8.1.27" },
+    "allow-plugins": { "typo3/cms-composer-installers": true, "typo3/class-alias-loader": true }
+  },
+  "extra": { "typo3/cms": { "web-dir": "public" } }
+}

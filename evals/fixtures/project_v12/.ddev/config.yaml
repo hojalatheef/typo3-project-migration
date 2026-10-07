@@ -1,0 +1,7 @@
+name: corporate
+type: typo3
+docroot: public
+php_version: "8.1"
+database:
+  type: mariadb
+  version: "10.3"
