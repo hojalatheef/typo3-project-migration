@@ -177,7 +177,7 @@ jq -r '
   (if (.core.major // 99) < 10 then "               WARNING: below TYPO3 10.4. This plugin starts at 10.4: reach it first with the official upgrade guides" else empty end),
   "PHP            declared \(.php.constraint // "-")   host \(.php.host // "-")   ddev \(.php.ddev // "-")",
   "Environment    ddev: \(.environment.ddev)  database: \(.environment.ddev_database // "-")",
-  "Git            clean: \(.git_clean // "not a repository")",
+  "Git            clean: \(if .git_clean == null then "not a repository" else .git_clean end)",
   "",
   "Own extensions (\(.extensions.own|length) via path repositories, \(.extensions.local_typo3conf_ext|length) in typo3conf/ext):",
   (.extensions.own[] | "  own    \(.name) \(.version)  [\(.key)]  \(.path)"),
